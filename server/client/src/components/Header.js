@@ -15,6 +15,7 @@ class Header extends Component {
             default:
                 return [
                         <li key="1"><StripePayments /></li>,
+                        <li key="3" style={{margin: '0 10px'}}> Credits: {this.props.auth.credits}</li>,
                         <li key="2"><a href="/api/logout">Logout</a></li>
                     ];
         }
@@ -26,8 +27,11 @@ class Header extends Component {
                 <div className="nav-wrapper">
                     <Link 
                         to={this.props.auth ? '/surveys' : '/'}
-                        className="left brand-logo"
+                        className="brand-logo center"
                     >Emaily</Link>
+                
+                    <spam className="center">{this.props.auth?`Welcome ${this.props.auth.displayName}`:''}</spam>
+                    
                     <ul className="right">
                         {this.renderContent()}
                     </ul>
