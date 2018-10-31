@@ -30,7 +30,7 @@ class Header extends Component {
                         className="brand-logo center"
                     >Emaily</Link>
                 
-                    <spam className="center">{this.props.auth?`Welcome ${this.props.auth.displayName}`:''}</spam>
+                    <span className="center">{this.props.auth?`Welcome ${this.props.auth.displayName}`:''}</span>
                     
                     <ul className="right">
                         {this.renderContent()}
