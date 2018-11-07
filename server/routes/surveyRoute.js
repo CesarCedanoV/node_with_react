@@ -55,11 +55,12 @@ module.exports = app => {
         Survey.updateOne({
           _id: surveyId,
           recipients:{
-            $elemMatch:{email,responded:false}
+            $elemMatch:{email:email,responded:false}
           }
         },{
           $inc: { [surveyResponse]:1 },
-          $set: { 'recipients.$.responded':true }
+          $set: { 'recipients.$.responded':true },
+          lastResponded: new Date()
         }).exec();
       })
       .value();
